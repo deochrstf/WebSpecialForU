@@ -1,0 +1,72 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Comic Sans MS", cursive;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: #fff0f5;
+    padding: 40px;
+    border-radius: 25px;
+    text-align: center;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    width: 500px;
+    position: relative;
+}
+
+.title {
+    margin-bottom: 30px;
+    color: #ff4d6d;
+}
+
+.question-box {
+    margin-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+.btn {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px;
+}
+
+.big-btn {
+    background: #ff4d6d;
+    color: white;
+    font-size: 20px;
+}
+
+.big-btn:hover {
+    transform: scale(1.1);
+    background: #ff1e4d;
+}
+
+.small-btn {
+    background: #ffd6e0;
+    color: #ff4d6d;
+    font-size: 14px;
+    padding: 8px 16px;
+    position: absolute;
+}
+
+.button-area {
+    position: relative;
+    width: 100%;
+    height: 200px; /* AREA BESAR untuk menghindar */
+    margin-top: 20px;
+}

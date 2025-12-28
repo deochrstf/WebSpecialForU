@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>For You ❤️</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Haii Kamuu 💕</h1>
+
+        <button id="startBtn" class="btn big-btn">
+            Klik aku donk 💖
+        </button>
+
+        <div id="questionBox" class="question-box hidden">
+            <h2>Do you want to be my Girlfriend? 💘</h2>
+
+            <div class="button-area">
+                <button id="yesBtn" class="btn big-btn">
+                    lyaaaa!! 😍
+                </button>
+
+                <button id="noBtn" class="btn small-btn">
+                    Gak dulu... 😅
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+<script>
+    const startBtn = document.getElementById("startBtn");
+const questionBox = document.getElementById("questionBox");
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const buttonArea = document.querySelector(".button-area");
+
+startBtn.addEventListener("click", () => {
+    startBtn.style.display = "none";
+    questionBox.classList.remove("hidden");
+});
+
+noBtn.addEventListener("mouseenter", () => {
+    const areaWidth = buttonArea.offsetWidth;
+    const areaHeight = buttonArea.offsetHeight;
+
+    const yesRect = yesBtn.getBoundingClientRect();
+    const areaRect = buttonArea.getBoundingClientRect();
+
+    let x, y;
+    let safe = false;
+
+    while (!safe) {
+        x = Math.random() * (areaWidth - noBtn.offsetWidth);
+        y = Math.random() * (areaHeight - noBtn.offsetHeight);
+
+        // Posisi relatif terhadap viewport
+        const noLeft = areaRect.left + x;
+        const noTop = areaRect.top + y;
+
+        // Cek agar tidak menutupi tombol "lyaaaa!!"
+        if (
+            noLeft + noBtn.offsetWidth < yesRect.left ||
+            noLeft > yesRect.right ||
+            noTop + noBtn.offsetHeight < yesRect.top ||
+            noTop > yesRect.bottom
+        ) {
+            safe = true;
+        }
+    }
+
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+});
+
+yesBtn.addEventListener("click", () => {
+    alert("Yaaayyy!!😍💖");
+});
+</script>
+</html>
